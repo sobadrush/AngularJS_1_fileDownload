@@ -1,0 +1,18 @@
+
+【在 AngularJS 中如果要使用 AJAX 就必須透過 $http 這個物件來處理】
+https://blog.johnsonlu.org/angularjs-ajax/
+
+※※【Download a file with AngularJS】
+https://stackoverflow.com/questions/28872607/download-a-file-with-angularjs
+
+【利用URL.createObjectURL方法，即時產生可下載檔案】
+http://rextsou-blog.logdown.com/posts/712200-using-urlcreateobjecturl-methods-create-downloadable-files
+
+【webAPI+angularJS文檔上傳和下載】
+https://hk.saowen.com/a/f100707ec11ce3ded553f045a0244362e484251a2865b16e2f7f666b55593b1a
+
+【angularjs实现POST方式下载文件，firefox兼容性问题】
+https://blog.csdn.net/wzl19870309/article/details/68922520
+
+【入门angular：文件的下载和上传】
+https://blog.csdn.net/sinat_27639721/article/details/72673034

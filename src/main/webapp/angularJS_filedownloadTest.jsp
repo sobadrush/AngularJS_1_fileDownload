@@ -88,8 +88,8 @@
 				            //-----------------------------
 				            var blob = new Blob( [data] , { type: "application/octet-stream"} );
 				            var objectUrl = URL.createObjectURL( blob );
-				            window.open(objectUrl);
-				            console.log( ' objectUrl >>> ' , objectUrl );
+				            //window.open(objectUrl);
+				            //console.log( ' objectUrl >>> ' , objectUrl );
 			                var downloadLink = angular.element('<a></a>');
 			                downloadLink.attr('href', URL.createObjectURL(blob));
 			                downloadLink.attr('target','_self');

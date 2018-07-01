@@ -86,7 +86,6 @@
 				   ).success(function (data, status, headers, config) {
 					  		console.log( ' >>> data >>> ' , data );
 				            //-----------------------------
-				            var filename = "fuckYou.jpg";
 				            var blob = new Blob( [data] , { type: "application/octet-stream"} );
 				            var objectUrl = URL.createObjectURL( blob );
 				            window.open(objectUrl);
@@ -94,8 +93,8 @@
 			                var downloadLink = angular.element('<a></a>');
 			                downloadLink.attr('href', URL.createObjectURL(blob));
 			                downloadLink.attr('target','_self');
-			                downloadLink.attr('download', myParams['filename']);
-			                downloadLink[0].click();
+			                downloadLink.attr('download', myParams['filename'] ); /*檔名*/
+			                downloadLink[0].click(); /*點一下<a>*/
 				        }
 				   ).error(function (data, status, headers, config) {
 				            alert("download failed!!");

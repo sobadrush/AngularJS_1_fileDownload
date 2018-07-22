@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.sql.SQLException;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,16 +40,28 @@ public class DisplayPhotoController extends HttpServlet {
 		
 		switch (actionName) {
 			case "getPhotoById":
+				
 				String photoId = request.getParameter("photoId");
 				try {
 					EmpPhotoVO empPhotoVO = empPhotoDAO.getEmpPhotoById(Integer.parseInt(photoId));
 					System.out.println(" >>> " + empPhotoVO);
 					
+					ServletContext context = super.getServletContext();
+					
+			        // gets MIME type of the file
+			        String mimeType = context.getMimeType(empPhotoVO.getPhotoName());
+			        if (mimeType == null) {        
+			            // set to binary type if MIME mapping not found
+			            mimeType = "application/octet-stream";
+			        }
+			        response.setContentType(mimeType);
+			        
+			        
 					InputStream is = empPhotoVO.getPhotoFile();
 					try(BufferedInputStream bis = new BufferedInputStream(is);
 							BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());) {
 						
-						int readed = 0;
+						int readed = -1;
 						byte[] bytes = new byte[2048 * 2];
 						while ( ( readed = bis.read(bytes)) != -1  ) {
 							System.out.println(" readed : " + readed + " kb.");
@@ -57,11 +70,19 @@ public class DisplayPhotoController extends HttpServlet {
 						
 					} catch (Exception e) {
 						e.printStackTrace();
-					} finally {
-						if (is != null) {
-							is.close();
-						}
-					}
+					} 
+					
+//					ServletOutputStream outStream = response.getOutputStream();
+//					   byte[] buffer = new byte[4096];
+//				        int bytesRead = -1;
+//					   while ((bytesRead = is.read(buffer)) != -1) {
+//				            outStream.write(buffer, 0, bytesRead);
+//				       }
+//				        
+//				        is.close();
+//				        outStream.flush();
+//				        outStream.close();
+					
 				} catch (NumberFormatException | SQLException e) {
 					e.printStackTrace();
 				}

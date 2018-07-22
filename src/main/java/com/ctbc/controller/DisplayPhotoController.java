@@ -72,17 +72,6 @@ public class DisplayPhotoController extends HttpServlet {
 						e.printStackTrace();
 					} 
 					
-//					ServletOutputStream outStream = response.getOutputStream();
-//					   byte[] buffer = new byte[4096];
-//				        int bytesRead = -1;
-//					   while ((bytesRead = is.read(buffer)) != -1) {
-//				            outStream.write(buffer, 0, bytesRead);
-//				       }
-//				        
-//				        is.close();
-//				        outStream.flush();
-//				        outStream.close();
-					
 				} catch (NumberFormatException | SQLException e) {
 					e.printStackTrace();
 				}

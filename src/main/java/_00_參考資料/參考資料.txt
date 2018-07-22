@@ -16,3 +16,8 @@ https://blog.csdn.net/wzl19870309/article/details/68922520
 
 【入门angular：文件的下载和上传】
 https://blog.csdn.net/sinat_27639721/article/details/72673034
+
+
+【更新時，取得最新主鍵】
+ * PreparedStatement >>> getGeneratedKeys
+ * https://blog.csdn.net/huaishuming/article/details/9699735
